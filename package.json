@@ -1,6 +1,6 @@
 {
   "name": "@poly-coder/fun",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Javascript general functional utilities that I use day to day",
   "browser": "dist/index.web.js",
   "main": "dist/index.cjs.js",
