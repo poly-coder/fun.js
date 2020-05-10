@@ -1,10 +1,21 @@
 {
   "name": "@poly-coder/fun",
   "version": "0.0.1",
-  "description": "",
+  "description": "Javascript general functional utilities that I use day to day",
   "browser": "dist/index.web.js",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
+  "contributors": [
+    {
+      "name": "Iskander Sierra",
+      "url": "https://github.com/iskandersierra",
+      "email": "iskander.sierra@gmail.com"
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/poly-coder/fun.js",
+    "type": "git"
+  },
   "scripts": {
     "build": "rollup --config",
     "clean": "rimraf dist",
