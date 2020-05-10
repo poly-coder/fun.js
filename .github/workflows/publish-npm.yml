@@ -6,9 +6,7 @@ name: Node.js CI
 on:
   push:
     branches: [ master ]
-    tags-ignore: ["*.*"]
-  pull_request:
-    branches: [ master ]
+    tags: ["v*"]
 
 jobs:
   build:
@@ -20,14 +18,24 @@ jobs:
         node-version: [10.x, 12.x]
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - uses: pnpm/action-setup@v1.2.0
+    - name: Setup PNPM
+      uses: pnpm/action-setup@v1.2.0
       with:
         version: 4.14.2
-    - run: pnpm install
-    - run: pnpm run build
-    - run: pnpm test
+    - name: Install Dependencies
+      run: pnpm install
+    - name: Build
+      run: pnpm run build
+    - name: Run Tests
+      run: pnpm test
+    - name: Publish package to NPM
+      uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_PUBLISH_TOKEN }}
+        check-version: true
