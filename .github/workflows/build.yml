@@ -6,10 +6,10 @@ name: Build and Test
 on:
   push:
     branches: [ master ]
-    tags-ignore: ["*.*"]
+    tags-ignore: ["*"]
   pull_request:
     branches: [ master ]
-    tags-ignore: ["*.*"]
+    tags-ignore: ["*"]
 
 jobs:
   build:
